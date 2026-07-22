@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matriks Admin Panel</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- jQuery UI -->
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css"
+    />
+
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <!-- Sol Alan -->
+        <div class="navbar-left">
+          <!-- Hamburger -->
+          <button
+            class="navbar-toggler d-md-none me-3"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#mobileSidebar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Logo -->
+
+          <a class="navbar-brand mb-0 me-4" href="index.html">
+            <img
+              src="../assets/images/matriks-logo.png"
+              alt="Matriks"
+              class="logo-img"
+            />
+          </a>
+
+          <!-- Datepicker -->
+
+          <div class="navbar-datepicker">
+            <label for="startDate"> Tarih Aralığı </label>
+
+            <div class="date-row">
+              <input
+                type="text"
+                id="startDate"
+                class="form-control form-control-sm"
+                placeholder="Başlangıç"
+              />
+
+              <input
+                type="text"
+                id="endDate"
+                class="form-control form-control-sm"
+                placeholder="Bitiş"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Sağ Alan -->
+
+        <div class="navbar-right">
+          <!-- Bildirim -->
+
+          <div class="dropdown me-4">
+            <a
+              href="#"
+              class="text-white text-decoration-none position-relative"
+              data-bs-toggle="dropdown"
+            >
+              <i class="fa-solid fa-bell fa-lg"></i>
+
+              <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+              >
+                0
+              </span>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="#"> Bildirim bulunmuyor. </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Kullanıcı -->
+
+          <div class="dropdown">
+            <a
+              href="#"
+              class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+              data-bs-toggle="dropdown"
+            >
+              <span class="me-2" id="loggedUser">Kullanıcı</span>
+
+              <i class="fa-solid fa-circle-user fa-xl"></i>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+
+              <li><a class="dropdown-item" href="#">Activity Log</a></li>
+
+              <li><hr class="dropdown-divider" /></li>
+
+              <li>
+                <a class="dropdown-item text-danger" href="#" id="logoutBtn">
+                  <i class="fa-solid fa-right-from-bracket me-2"></i>
+
+                  Çıkış Yap
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MOBİL SIDEBAR -->
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileSidebar">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2">
+            <a class="nav-link active" href="#"> Dashboard </a>
+          </li>
+
+          <li class="nav-item mb-2">
+            <a class="nav-link" href="#"> Users </a>
+          </li>
+
+          <li class="nav-item mb-2">
+            <a class="nav-link" href="#"> Orders </a>
+          </li>
+
+          <li class="nav-item mb-2">
+            <a class="nav-link" href="#"> Reports </a>
+          </li>
+
+          <li class="nav-item mb-2">
+            <a class="nav-link" href="#"> Settings </a>
+          </li>
+        </ul>
+
+        <hr />
+
+        <a href="#" class="nav-link text-danger" id="mobileLogout">
+          <i class="fa-solid fa-right-from-bracket me-2"></i>
+          Çıkış Yap
+        </a>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- DESKTOP SIDEBAR -->
+
+        <aside class="col-md-2 border-end sidebar p-0 d-none d-md-block">
+          <div class="p-4">
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <a class="nav-link active" href="#"> Dashboard </a>
+              </li>
+
+              <li class="nav-item mb-2">
+                <a class="nav-link" href="#"> Users </a>
+              </li>
+
+              <li class="nav-item mb-2">
+                <a class="nav-link" href="#"> Orders </a>
+              </li>
+
+              <li class="nav-item mb-2">
+                <a class="nav-link" href="#"> Reports </a>
+              </li>
+
+              <li class="nav-item mb-2">
+                <a class="nav-link" href="#"> Settings </a>
+              </li>
+            </ul>
+
+            <hr />
+
+            <a href="#" class="nav-link text-danger" id="sidebarLogout">
+              <i class="fa-solid fa-right-from-bracket me-2"></i>
+              Çıkış Yap
+            </a>
+          </div>
+        </aside>
+
+        <!-- MAIN -->
+
+        <main class="col-12 col-md-10 p-4">
+          <h2>Page Title</h2>
+
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="#"> Breadcrumb </a>
+              </li>
+
+              <li class="breadcrumb-item">
+                <a href="#"> Page </a>
+              </li>
+
+              <li class="breadcrumb-item active">Current</li>
+            </ol>
+          </nav>
+
+          <hr />
+
+          <!-- CONTENT AREA -->
+
+          <div class="border rounded p-5 mb-4" style="min-height: 180px"></div>
+
+          <!-- TABLE -->
+
+          <div class="card">
+            <div class="card-body">
+              <table class="table table-bordered table-hover">
+                <thead class="table-light">
+                  <tr>
+                    <th>Column 1</th>
+
+                    <th>Column 2</th>
+
+                    <th>Column 3</th>
+
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>Row 1</td>
+
+                    <td></td>
+
+                    <td></td>
+
+                    <td></td>
+                  </tr>
+
+                  <tr>
+                    <td>Row 2</td>
+
+                    <td></td>
+
+                    <td></td>
+
+                    <td></td>
+                  </tr>
+
+                  <tr>
+                    <td>Row 3</td>
+
+                    <td></td>
+
+                    <td></td>
+
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer class="border-top py-3 text-center text-muted">
+      © <span id="currentYear"></span> Matriks Finansal Teknolojiler A.Ş. |
+      Admin Panel
+    </footer>
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS -->
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>

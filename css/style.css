@@ -1,0 +1,458 @@
+/* ========================= */
+/* GENERAL */
+/* ========================= */
+
+body {
+    overflow-x: hidden;
+}
+
+/* ========================= */
+/* SIDEBAR */
+/* ========================= */
+
+.sidebar {
+    min-height: 100vh;
+}
+
+.nav-link {
+    color: #212529;
+    transition: .2s;
+}
+
+.nav-link:hover {
+    background: #f8f9fa;
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+.navbar {
+    padding: 15px 20px;
+}
+
+.navbar .container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 170px;
+    height: auto;
+    display: block;
+}
+
+/* ========================= */
+/* DATEPICKER */
+/* ========================= */
+
+.navbar-datepicker {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.navbar-datepicker label {
+    color: #fff;
+    font-weight: 600;
+    margin-right: 12px;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.date-row {
+    display: flex;
+    gap: 10px;
+}
+
+#startDate,
+#endDate {
+    width: 150px;
+}
+
+/* Badge */
+
+.badge {
+    font-size: .65rem;
+}
+
+/* ========================= */
+/* MAIN */
+/* ========================= */
+
+main {
+    min-height: 100vh;
+}
+
+.card {
+    border-radius: 0;
+}
+
+/* ========================= */
+/* JQUERY UI */
+/* ========================= */
+
+.ui-datepicker {
+    font-size: 14px;
+}
+
+.ui-datepicker-header {
+    background: #212529;
+    color: #fff;
+    border: none;
+}
+
+.ui-datepicker-calendar .ui-state-active {
+    background: #0d6efd !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+/* ========================= */
+/* LOGIN PAGE */
+/* ========================= */
+
+.login-page {
+    background: #212529;
+    min-height: 100vh;
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    border: none;
+    border-radius: 18px;
+    padding: 45px;
+    box-shadow: 0 15px 35px rgba(0,0,0,.25);
+}
+
+.login-logo {
+    width: 300px;
+    display: block;
+    margin: 0 auto 30px;
+}
+
+.login-card h3 {
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 35px;
+}
+
+/* Label */
+
+.form-label {
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 8px;
+}
+
+/* Label Icons */
+
+.form-label i {
+    color: #2d3586;
+    margin-right: 8px;
+}
+
+/* Input */
+
+.login-card .form-control {
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+}
+
+/* Focus */
+
+.login-card .form-control:focus {
+    border-color: #2d3586;
+    box-shadow: 0 0 0 .2rem rgba(45,53,134,.15);
+}
+
+/* Validation */
+
+.invalid-feedback {
+    font-size: .9rem;
+}
+
+/* Forgot Password */
+
+.forgot-password {
+    color: #2d3586;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Login Button */
+
+.login-btn {
+    background: #2d3586;
+    border: 1px solid #2d3586;
+    color: #fff;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all .25s ease;
+}
+
+.login-btn:hover {
+    background: #1f276d;
+    border-color: #1f276d;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(45,53,134,.35);
+}
+
+.login-btn:focus {
+    background: #1f276d;
+    border-color: #1f276d;
+    box-shadow: 0 0 0 .2rem rgba(45,53,134,.25);
+}
+
+.login-btn:active {
+    background: #19205a !important;
+    border-color: #19205a !important;
+}
+
+/* Şifre Göster Butonu */
+
+#togglePassword{
+    border-radius:0 10px 10px 0;
+}
+
+#togglePassword:focus{
+    box-shadow:none;
+}
+
+#togglePassword i{
+    color:#2d3586;
+}
+
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width:767.98px){
+
+    /* Sidebar */
+
+    .offcanvas{
+        width:260px;
+    }
+
+    /* Navbar */
+
+    .navbar .container-fluid{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .navbar-left{
+        width:100%;
+        display:flex;
+        align-items:center;
+        flex-wrap:wrap;
+    }
+
+    .navbar-right{
+        position:absolute;
+        top:18px;
+        right:20px;
+    }
+
+    .logo-img{
+        width:145px;
+    }
+
+    .navbar-datepicker{
+        width:100%;
+        margin-top:15px;
+        margin-left:0;
+        display:block;
+    }
+
+    .navbar-datepicker label{
+        display:block;
+        margin-bottom:8px;
+    }
+
+    .date-row{
+        display:flex;
+        gap:10px;
+    }
+
+    .date-row input{
+        flex:1;
+        height:38px;
+    }
+
+    /* Login */
+
+    .login-card{
+        margin:20px;
+        padding:35px 25px;
+    }
+
+    .login-logo{
+        width:220px;
+    }
+
+    .login-card h3{
+        font-size:2rem;
+    }
+
+}
+
+/* Sidebar Active */
+
+.sidebar .nav-link,
+.offcanvas .nav-link {
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.sidebar .nav-link.active,
+.offcanvas .nav-link.active {
+    background: #2d3586;
+    color: #fff;
+}
+
+.sidebar .nav-link:hover,
+.offcanvas .nav-link:hover {
+    background: #eef2ff;
+}
+
+.sidebar .nav-link.active:hover,
+.offcanvas .nav-link.active:hover {
+    background: #2d3586;
+    color: #fff;
+}
+
+/* ========================= */
+/* HOVER EFFECTS */
+/* ========================= */
+
+/* Sidebar */
+
+.sidebar .nav-link {
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: all .25s ease;
+}
+
+.sidebar .nav-link:hover {
+    background: #2d3586;
+    color: #fff;
+    transform: translateX(5px);
+}
+
+/* Aktif Menü */
+
+.sidebar .nav-link.active {
+    background: #2d3586;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Mobil Sidebar */
+
+.offcanvas .nav-link {
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: all .25s ease;
+}
+
+.offcanvas .nav-link:hover {
+    background: #2d3586;
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.offcanvas .nav-link.active {
+    background: #2d3586;
+    color: #fff;
+}
+
+/* Navbar Dropdown */
+
+.navbar .dropdown-toggle {
+    transition: .25s;
+}
+
+.navbar .dropdown-toggle:hover {
+    opacity: .85;
+}
+
+/* Bildirim */
+
+.navbar .fa-bell {
+    transition: .25s;
+}
+
+.navbar .fa-bell:hover {
+    transform: scale(1.15);
+}
+
+/* Logo */
+
+.logo-img {
+    transition: .3s;
+}
+
+.logo-img:hover {
+    transform: scale(1.03);
+}
+
+/* Butonlar */
+
+.btn {
+    transition: all .25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Dropdown Menü */
+
+.dropdown-menu {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+.dropdown-item {
+    transition: .2s;
+}
+
+.dropdown-item:hover {
+    background: #2d3586;
+    color: #fff;
+}
