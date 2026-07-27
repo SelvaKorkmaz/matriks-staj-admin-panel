@@ -60,6 +60,7 @@
             <img
               src="../assets/images/matriks-light-logo.png"
               alt="Matriks"
+              id="logo"
               class="logo-img"
             />
           </a>
@@ -201,16 +202,12 @@
           </li>
         </ul>
 
-      
-
         <a href="#" class="nav-link text-danger mb-3" id="mobileLogout">
           <i class="fa-solid fa-right-from-bracket me-2"></i>
           Çıkış Yap
         </a>
 
         <div class="mt-auto">
-         
-
           <div class="theme-switch-container-mobile">
             <div class="form-check form-switch">
               <input
@@ -218,8 +215,12 @@
                 type="checkbox"
                 id="mobileThemeSwitch"
               />
-              <label class="form-check-label" for="mobileThemeSwitch">
-                Koyu Tema
+              <label
+                class="form-check-label"
+                id="mobileThemeLabel"
+                for="mobileThemeSwitch"
+              >
+                ☀️ Açık Tema
               </label>
             </div>
           </div>
@@ -274,8 +275,6 @@
                 </li>
               </ul>
 
-             
-
               <a href="#" class="nav-link text-danger mb-3" id="sidebarLogout">
                 <i class="fa-solid fa-right-from-bracket me-2"></i>
                 Çıkış Yap
@@ -291,8 +290,12 @@
                     id="themeSwitch"
                   />
 
-                  <label class="form-check-label" for="themeSwitch">
-                    Koyu Tema
+                  <label
+                    class="form-check-label"
+                    id="themeLabel"
+                    for="themeSwitch"
+                  >
+                    ☀️ Açık Tema
                   </label>
                 </div>
               </div>
@@ -398,7 +401,7 @@
 
     <!-- FOOTER -->
 
-    <footer class="border-top py-3 text-center text-muted">
+    <footer class="border-top py-3 text-center">
       © <span id="currentYear"></span> Matriks Finansal Teknolojiler A.Ş. |
       Admin Panel
     </footer>

@@ -118,8 +118,7 @@ function closeMobileSidebar() {
   const mobileSidebar = document.getElementById("mobileSidebar");
 
   if (window.innerWidth < 768 && mobileSidebar) {
-    const offcanvas =
-      bootstrap.Offcanvas.getOrCreateInstance(mobileSidebar);
+    const offcanvas = bootstrap.Offcanvas.getOrCreateInstance(mobileSidebar);
 
     offcanvas.hide();
   }
@@ -266,16 +265,82 @@ document.addEventListener("click", function (e) {
   showEmptyMessage();
 });
 
-
 // =========================
 // Sortable Tabs
 // =========================
 
 new Sortable(tabContainer, {
-    animation: 200,
-    ghostClass: "tab-ghost",
-    chosenClass: "tab-chosen",
-    dragClass: "tab-drag",
-    filter: ".close-tab",
-    preventOnFilter: false
+  animation: 200,
+  ghostClass: "tab-ghost",
+  chosenClass: "tab-chosen",
+  dragClass: "tab-drag",
+  filter: ".close-tab",
+  preventOnFilter: false,
 });
+
+// =========================
+// Theme Switch
+// =========================
+
+const themeSwitch = document.getElementById("themeSwitch");
+const mobileThemeSwitch = document.getElementById("mobileThemeSwitch");
+
+const logo = document.getElementById("logo");
+
+const themeLabel = document.getElementById("themeLabel");
+const mobileThemeLabel = document.getElementById("mobileThemeLabel");
+
+// Tema uygula
+function applyTheme(isDark) {
+  document.body.classList.toggle("dark-mode", isDark);
+
+  // Switchleri senkron tut
+  if (themeSwitch) themeSwitch.checked = isDark;
+  if (mobileThemeSwitch) mobileThemeSwitch.checked = isDark;
+
+  if (logo) {
+    logo.src = isDark
+      ? "../assets/images/matriks-logo.png"
+      : "../assets/images/matriks-light-logo.png";
+  }
+
+  // Label değiştir
+
+  if (themeLabel) {
+    themeLabel.textContent = isDark ? "🌙 Koyu Tema" : "☀️ Açık Tema";
+  }
+
+  if (mobileThemeLabel) {
+    mobileThemeLabel.textContent = isDark ? "🌙 Koyu Tema" : "☀️ Açık Tema";
+  }
+
+  // Kaydet
+  localStorage.setItem("darkMode", isDark);
+}
+
+// Kayıtlı temayı yükle
+const savedTheme = localStorage.getItem("darkMode") === "true";
+
+applyTheme(savedTheme);
+
+// Desktop switch
+if (themeSwitch) {
+  themeSwitch.addEventListener("change", function () {
+    applyTheme(this.checked);
+  });
+}
+
+// Mobil switch
+if (mobileThemeSwitch) {
+  mobileThemeSwitch.addEventListener("change", function () {
+    applyTheme(this.checked);
+
+    const sidebar = document.getElementById("mobileSidebar");
+
+    const offcanvas = bootstrap.Offcanvas.getInstance(sidebar);
+
+    if (offcanvas) {
+      offcanvas.hide();
+    }
+  });
+}
