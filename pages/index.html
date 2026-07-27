@@ -58,7 +58,7 @@
 
           <a class="navbar-brand mb-0 me-4" href="index.html">
             <img
-              src="../assets/images/matriks-logo.png"
+              src="../assets/images/matriks-light-logo.png"
               alt="Matriks"
               class="logo-img"
             />
@@ -159,77 +159,144 @@
           type="button"
           class="btn-close"
           data-bs-dismiss="offcanvas"
+          aria-label="Close"
         ></button>
       </div>
 
-      <div class="offcanvas-body">
+      <div class="offcanvas-body d-flex flex-column">
         <ul class="nav flex-column">
           <li class="nav-item mb-2">
-            <a class="nav-link active" href="#"> Dashboard </a>
+            <a class="nav-link" href="#" data-page="dashboard">
+              <i class="fa-solid fa-chart-line me-2"></i>
+              Dashboard
+            </a>
           </li>
 
           <li class="nav-item mb-2">
-            <a class="nav-link" href="#"> Users </a>
+            <a class="nav-link" href="#" data-page="users">
+              <i class="fa-solid fa-users me-2"></i>
+              Users
+            </a>
           </li>
 
           <li class="nav-item mb-2">
-            <a class="nav-link" href="#"> Orders </a>
+            <a class="nav-link" href="#" data-page="orders">
+              <i class="fa-solid fa-box me-2"></i>
+              Orders
+            </a>
           </li>
 
           <li class="nav-item mb-2">
-            <a class="nav-link" href="#"> Reports </a>
+            <a class="nav-link" href="#" data-page="reports">
+              <i class="fa-solid fa-file-lines me-2"></i>
+              Reports
+            </a>
           </li>
 
           <li class="nav-item mb-2">
-            <a class="nav-link" href="#"> Settings </a>
+            <a class="nav-link" href="#" data-page="settings">
+              <i class="fa-solid fa-gear me-2"></i>
+              Settings
+            </a>
           </li>
         </ul>
 
-        <hr />
+      
 
-        <a href="#" class="nav-link text-danger" id="mobileLogout">
+        <a href="#" class="nav-link text-danger mb-3" id="mobileLogout">
           <i class="fa-solid fa-right-from-bracket me-2"></i>
           Çıkış Yap
         </a>
+
+        <div class="mt-auto">
+         
+
+          <div class="theme-switch-container-mobile">
+            <div class="form-check form-switch">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="mobileThemeSwitch"
+              />
+              <label class="form-check-label" for="mobileThemeSwitch">
+                Koyu Tema
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- CONTENT -->
 
     <div class="container-fluid">
-      <div class="row">
+      <div class="row min-vh-100">
         <!-- DESKTOP SIDEBAR -->
 
         <aside class="col-md-2 border-end sidebar p-0 d-none d-md-block">
-          <div class="p-4">
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a class="nav-link active" href="#"> Dashboard </a>
-              </li>
+          <div class="sidebar-content d-flex flex-column h-100">
+            <!-- Menü -->
+            <div>
+              <ul class="nav flex-column">
+                <li class="nav-item mb-2">
+                  <a class="nav-link" href="#" data-page="dashboard">
+                    <i class="fa-solid fa-chart-line me-2"></i>
+                    Dashboard
+                  </a>
+                </li>
 
-              <li class="nav-item mb-2">
-                <a class="nav-link" href="#"> Users </a>
-              </li>
+                <li class="nav-item mb-2">
+                  <a class="nav-link" href="#" data-page="users">
+                    <i class="fa-solid fa-users me-2"></i>
+                    Users
+                  </a>
+                </li>
 
-              <li class="nav-item mb-2">
-                <a class="nav-link" href="#"> Orders </a>
-              </li>
+                <li class="nav-item mb-2">
+                  <a class="nav-link" href="#" data-page="orders">
+                    <i class="fa-solid fa-box me-2"></i>
+                    Orders
+                  </a>
+                </li>
 
-              <li class="nav-item mb-2">
-                <a class="nav-link" href="#"> Reports </a>
-              </li>
+                <li class="nav-item mb-2">
+                  <a class="nav-link" href="#" data-page="reports">
+                    <i class="fa-solid fa-file-lines me-2"></i>
+                    Reports
+                  </a>
+                </li>
 
-              <li class="nav-item mb-2">
-                <a class="nav-link" href="#"> Settings </a>
-              </li>
-            </ul>
+                <li class="nav-item mb-2">
+                  <a class="nav-link" href="#" data-page="settings">
+                    <i class="fa-solid fa-gear me-2"></i>
+                    Settings
+                  </a>
+                </li>
+              </ul>
 
-            <hr />
+             
 
-            <a href="#" class="nav-link text-danger" id="sidebarLogout">
-              <i class="fa-solid fa-right-from-bracket me-2"></i>
-              Çıkış Yap
-            </a>
+              <a href="#" class="nav-link text-danger mb-3" id="sidebarLogout">
+                <i class="fa-solid fa-right-from-bracket me-2"></i>
+                Çıkış Yap
+              </a>
+            </div>
+
+            <div class="mt-auto">
+              <div class="theme-switch-container">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="themeSwitch"
+                  />
+
+                  <label class="form-check-label" for="themeSwitch">
+                    Koyu Tema
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
         </aside>
 
@@ -256,7 +323,23 @@
 
           <!-- CONTENT AREA -->
 
-          <div class="border rounded p-5 mb-4" style="min-height: 180px"></div>
+          <div class="card mb-4">
+            <!-- Tabs -->
+
+            <div class="card-header p-0">
+              <ul class="nav nav-tabs" id="dynamicTabs"></ul>
+            </div>
+
+            <!-- Tab Content -->
+
+            <div class="card-body">
+              <div class="tab-content" id="dynamicTabContent">
+                <div id="emptyMessage" class="text-center text-muted py-5">
+                  Sol menüden bir sayfa seçiniz.
+                </div>
+              </div>
+            </div>
+          </div>
 
           <!-- TABLE -->
 
@@ -323,6 +406,9 @@
     <!-- Bootstrap JS -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SortableJS -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
 
     <!-- JS -->
 
