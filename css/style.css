@@ -65,8 +65,6 @@ body {
   align-items: center;
 }
 
-
-
 /* ========================= */
 /* DATEPICKER */
 /* ========================= */
@@ -735,7 +733,6 @@ body.dark-mode .navbar i {
   color: #212529 !important;
 }
 
-
 /* ========================= */
 /* THEME SWITCH */
 /* ========================= */
@@ -812,9 +809,8 @@ body.dark-mode #endDate::placeholder {
   color: #6c757d;
 }
 
-
 body.dark-mode .navbar {
-    border-bottom: 2px solid #2d3586;
+  border-bottom: 2px solid #2d3586;
 }
 
 /* ========================= */
@@ -826,18 +822,48 @@ body.dark-mode .navbar {
 /* ========================= */
 
 @media (min-width: 768px) {
+  /* Açık Tema */
+  body:not(.dark-mode) .logo-img {
+    width: 165px;
+    height: auto;
+  }
 
-    /* Açık Tema */
-    body:not(.dark-mode) .logo-img{
-        width: 165px;
-        height: auto;
-    }
-
-    /* Koyu Tema */
-    body.dark-mode .logo-img{
-        width: 165px;
-        height: auto;
-    }
-
+  /* Koyu Tema */
+  body.dark-mode .logo-img {
+    width: 165px;
+    height: auto;
+  }
 }
 
+.table-responsive {
+  overflow-x: auto;
+}
+
+#employeeTable {
+  width: 100% !important;
+}
+
+/* ===================================
+   DATATABLES DARK MODE
+=================================== */
+
+body.dark-mode table.dataTable {
+    color: #fff !important;
+    border-color: #495057;
+}
+
+body.dark-mode table.dataTable thead th {
+    background-color: #2b3445 !important;
+    color: #ffffff !important;
+    border-color: #495057 !important;
+}
+
+body.dark-mode table.dataTable tbody td {
+    background-color: #1f2937 !important;
+    color: #ffffff !important;
+    border-color: #495057 !important;
+}
+
+body.dark-mode table.dataTable tbody tr:hover td {
+    background-color: #2d3748 !important;
+}

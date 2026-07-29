@@ -84,6 +84,72 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "login.html";
     });
   });
+
+  // DataTable
+  /*new DataTable("#employeeTable", {
+    pageLength: 10,
+
+    lengthMenu: [5, 10, 25, 50],
+
+    language: {
+      lengthMenu: "_MENU_ Kayıt Göster",
+      zeroRecords: "Kayıt bulunamadı",
+      info: "_TOTAL_ kayıttan _START_ - _END_ arası gösteriliyor",
+      infoEmpty: "Gösterilecek kayıt yok",
+      infoFiltered: "(_MAX_ kayıt içerisinden filtrelendi)",
+      search: "Ara:",
+      paginate: {
+        first: "İlk",
+        last: "Son",
+        next: "Sonraki",
+        previous: "Önceki",
+      },
+    },
+  });*/
+  Papa.parse("../data/employees.csv", {
+    download: true,
+    header: true,
+    delimiter: ";",
+    skipEmptyLines: true,
+
+    complete: function (results) {
+      console.log(results.data);
+
+      const tbody = document.getElementById("employeeTableBody");
+
+      results.data.forEach((employee) => {
+        tbody.innerHTML += `
+        <tr>
+          <td>${employee.ID}</td>
+          <td>${employee["Ad Soyad"]}</td>
+          <td>${employee.Departman}</td>
+          <td>${employee.Durum}</td>
+        </tr>
+      `;
+      });
+
+      new DataTable("#employeeTable", {
+        pageLength: 10,
+
+        lengthMenu: [5, 10, 25, 50],
+
+        language: {
+          lengthMenu: "_MENU_ Kayıt Göster",
+          zeroRecords: "Kayıt bulunamadı",
+          info: "_TOTAL_ kayıttan _START_ - _END_ arası gösteriliyor",
+          infoEmpty: "Gösterilecek kayıt yok",
+          infoFiltered: "(_MAX_ kayıt içerisinden filtrelendi)",
+          search: "Ara:",
+          paginate: {
+            first: "İlk",
+            last: "Son",
+            next: "Sonraki",
+            previous: "Önceki",
+          },
+        },
+      });
+    },
+  });
 });
 
 // Footer Yılı

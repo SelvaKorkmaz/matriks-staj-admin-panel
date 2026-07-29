@@ -11,6 +11,12 @@
       rel="stylesheet"
     />
 
+    <!-- DataTables CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap5.css"
+    />
+
     <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
@@ -36,6 +42,10 @@
     />
 
     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+
+    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
+
+    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.js"></script>
   </head>
 
   <body>
@@ -347,52 +357,21 @@
           <!-- TABLE -->
 
           <div class="card">
-            <div class="card-body">
-              <table class="table table-bordered table-hover">
-                <thead class="table-light">
-                  <tr>
-                    <th>Column 1</th>
+            <div class="card-body table-responsive">
+              <table id="employeeTable" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ad Soyad</th>
+            <th>Departman</th>
+            <th>Durum</th>
+        </tr>
+    </thead>
 
-                    <th>Column 2</th>
+    <tbody id="employeeTableBody">
 
-                    <th>Column 3</th>
-
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td>Row 1</td>
-
-                    <td></td>
-
-                    <td></td>
-
-                    <td></td>
-                  </tr>
-
-                  <tr>
-                    <td>Row 2</td>
-
-                    <td></td>
-
-                    <td></td>
-
-                    <td></td>
-                  </tr>
-
-                  <tr>
-                    <td>Row 3</td>
-
-                    <td></td>
-
-                    <td></td>
-
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+    </tbody>
+</table>
             </div>
           </div>
         </main>
@@ -413,8 +392,10 @@
     <!-- SortableJS -->
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
 
-    <!-- JS -->
+    <!-- PapaParse -->
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
+    <!-- JS -->
     <script src="../js/script.js"></script>
   </body>
 </html>
