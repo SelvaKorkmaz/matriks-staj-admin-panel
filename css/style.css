@@ -65,11 +65,7 @@ body {
   align-items: center;
 }
 
-.logo-img {
-  width: 170px;
-  height: auto;
-  display: block;
-}
+
 
 /* ========================= */
 /* DATEPICKER */
@@ -825,9 +821,23 @@ body.dark-mode .navbar {
 /* DARK MODE LOGO */
 /* ========================= */
 
-body.dark-mode .logo-img {
-    width: 140px;
-    height: auto;
-    transition: 0.3s ease;
+/* ========================= */
+/* DESKTOP LOGO */
+/* ========================= */
+
+@media (min-width: 768px) {
+
+    /* Açık Tema */
+    body:not(.dark-mode) .logo-img{
+        width: 165px;
+        height: auto;
+    }
+
+    /* Koyu Tema */
+    body.dark-mode .logo-img{
+        width: 165px;
+        height: auto;
+    }
+
 }
 
