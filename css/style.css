@@ -346,6 +346,31 @@ main {
   .login-card h3 {
     font-size: 2rem;
   }
+
+  /* ========================= */
+  /* Mobile DataTables */
+  /* ========================= */
+
+  .dataTables_wrapper .dataTables_length,
+  .dataTables_wrapper .dataTables_filter,
+  .dataTables_wrapper .dataTables_info,
+  .dataTables_wrapper .dataTables_paginate {
+    text-align: center;
+  }
+
+  .dataTables_wrapper .dataTables_length,
+  .dataTables_wrapper .dataTables_filter {
+    margin-bottom: 15px;
+  }
+
+  .dataTables_wrapper .dataTables_filter input {
+    margin-left: 8px;
+  }
+
+  .table-responsive {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 /* Sidebar Active */
@@ -848,24 +873,24 @@ body.dark-mode .navbar {
 =================================== */
 
 body.dark-mode table.dataTable {
-    color: #fff !important;
-    border-color: #495057;
+  color: #fff !important;
+  border-color: #495057;
 }
 
 body.dark-mode table.dataTable thead th {
-    background-color: #2b3445 !important;
-    color: #ffffff !important;
-    border-color: #495057 !important;
+  background-color: #2b3445 !important;
+  color: #ffffff !important;
+  border-color: #495057 !important;
 }
 
 body.dark-mode table.dataTable tbody td {
-    background-color: #1f2937 !important;
-    color: #ffffff !important;
-    border-color: #495057 !important;
+  background-color: #1f2937 !important;
+  color: #ffffff !important;
+  border-color: #495057 !important;
 }
 
 body.dark-mode table.dataTable tbody tr:hover td {
-    background-color: #2d3748 !important;
+  background-color: #2d3748 !important;
 }
 
 /* ========================= */
@@ -873,9 +898,9 @@ body.dark-mode table.dataTable tbody tr:hover td {
 /* ========================= */
 
 #emptyMessage {
-    color: #212529 !important;
+  color: #212529 !important;
 }
 
 body.dark-mode #emptyMessage {
-    color: #ffffff !important;
+  color: #ffffff !important;
 }
