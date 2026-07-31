@@ -356,22 +356,50 @@
 
           <!-- TABLE -->
 
+          <!-- Charts -->
+          <div class="row mb-4">
+            <!-- Sol Grafik -->
+            <div class="col-lg-6 mb-4">
+              <div class="card shadow-sm h-100">
+                <div class="card-header fw-bold">
+                  Haftalık Kullanıcı Hareketleri
+                </div>
+
+                <div class="card-body">
+                  <div id="activityChart" style="height: 350px"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sağ Grafik -->
+            <div class="col-lg-6 mb-4">
+              <div class="card shadow-sm h-100">
+                <div class="card-header fw-bold">Çalışan Durumu</div>
+
+                <div class="card-body">
+                  <div id="statusChart" style="height: 350px"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="card">
             <div class="card-body table-responsive">
-              <table id="employeeTable" class="table table-bordered table-hover">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Ad Soyad</th>
-            <th>Departman</th>
-            <th>Durum</th>
-        </tr>
-    </thead>
+              <table
+                id="employeeTable"
+                class="table table-bordered table-hover"
+              >
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Ad Soyad</th>
+                    <th>Departman</th>
+                    <th>Durum</th>
+                  </tr>
+                </thead>
 
-    <tbody id="employeeTableBody">
-
-    </tbody>
-</table>
+                <tbody id="employeeTableBody"></tbody>
+              </table>
             </div>
           </div>
         </main>
@@ -388,6 +416,12 @@
     <!-- Bootstrap JS -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <!-- Highcharts Exporting -->
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
     <!-- SortableJS -->
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>

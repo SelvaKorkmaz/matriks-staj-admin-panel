@@ -85,27 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // DataTable
-  /*new DataTable("#employeeTable", {
-    pageLength: 10,
-
-    lengthMenu: [5, 10, 25, 50],
-
-    language: {
-      lengthMenu: "_MENU_ Kayıt Göster",
-      zeroRecords: "Kayıt bulunamadı",
-      info: "_TOTAL_ kayıttan _START_ - _END_ arası gösteriliyor",
-      infoEmpty: "Gösterilecek kayıt yok",
-      infoFiltered: "(_MAX_ kayıt içerisinden filtrelendi)",
-      search: "Ara:",
-      paginate: {
-        first: "İlk",
-        last: "Son",
-        next: "Sonraki",
-        previous: "Önceki",
-      },
-    },
-  });*/
   Papa.parse("../data/employees.csv", {
     download: true,
     header: true,
@@ -113,11 +92,28 @@ document.addEventListener("DOMContentLoaded", () => {
     skipEmptyLines: true,
 
     complete: function (results) {
-      console.log(results.data);
+      // Durum sayıları
+      let aktif = 0;
+      let pasif = 0;
+      let izinli = 0;
 
       const tbody = document.getElementById("employeeTableBody");
 
       results.data.forEach((employee) => {
+        switch (employee.Durum) {
+          case "Aktif":
+            aktif++;
+            break;
+
+          case "Pasif":
+            pasif++;
+            break;
+
+          case "İzinli":
+            izinli++;
+            break;
+        }
+
         tbody.innerHTML += `
         <tr>
           <td>${employee.ID}</td>
@@ -130,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       new DataTable("#employeeTable", {
         pageLength: 10,
-
         lengthMenu: [5, 10, 25, 50],
 
         language: {
@@ -148,7 +143,207 @@ document.addEventListener("DOMContentLoaded", () => {
           },
         },
       });
+
+      // =========================
+      // Highcharts - Çalışan Durumu
+      // =========================
+
+      Highcharts.chart("statusChart", {
+        chart: {
+          type: "pie",
+          backgroundColor: "transparent",
+        },
+
+        title: {
+          text: null,
+        },
+
+        credits: {
+          enabled: false,
+        },
+
+        exporting: {
+          enabled: false,
+        },
+
+        tooltip: {
+          formatter: function () {
+            return (
+              "<b>%" +
+              Highcharts.numberFormat(this.percentage, 0) +
+              "</b> (" +
+              this.y +
+              " kişi)"
+            );
+          },
+        },
+
+        plotOptions: {
+          pie: {
+            innerSize: "65%",
+            allowPointSelect: true,
+            cursor: "pointer",
+
+            dataLabels: {
+              enabled: true,
+
+              formatter: function () {
+                return (
+                  "<b>%" +
+                  Highcharts.numberFormat(this.percentage, 0) +
+                  "</b><br>" +
+                  this.point.name
+                );
+              },
+
+              style: {
+                fontSize: "13px",
+                fontWeight: "bold",
+                textOutline: "none",
+              },
+            },
+          },
+        },
+
+        series: [
+          {
+            name: "Çalışan",
+
+            data: [
+              {
+                name: "Aktif",
+                y: aktif,
+                color: "#22C55E",
+              },
+              {
+                name: "Pasif",
+                y: pasif,
+                color: "#F59E0B",
+              },
+              {
+                name: "İzinli",
+                y: izinli,
+                color: "#EF4444",
+              },
+            ],
+          },
+        ],
+      });
     },
+  });
+
+  // Highcharts - Haftalık Kullanıcı Hareketleri
+
+  Highcharts.chart("activityChart", {
+    chart: {
+      type: "areaspline",
+      backgroundColor: "transparent",
+    },
+
+    title: {
+      text: null,
+    },
+
+    credits: {
+      enabled: false,
+    },
+
+    lang: {
+      viewFullscreen: "Tam ekran görüntüle",
+      exitFullscreen: "Tam ekrandan çık",
+      printChart: "Grafiği Yazdır",
+      downloadPNG: "PNG olarak indir",
+      downloadJPEG: "JPEG olarak indir",
+      downloadSVG: "SVG olarak indir",
+      downloadPDF: "PDF olarak indir",
+      contextButtonTitle: "Grafik Menüsü",
+    },
+
+    legend: {
+      enabled: false,
+    },
+
+    colors: ["#5B5CEB"],
+
+    xAxis: {
+      categories: ["Pzt", "Sal", "Çar", "Per", "Cum", "Cmt", "Paz"],
+
+      lineColor: "#E5E7EB",
+
+      tickColor: "#E5E7EB",
+
+      labels: {
+        style: {
+          color: "#6B7280",
+          fontSize: "13px",
+        },
+      },
+    },
+
+    yAxis: {
+      title: {
+        text: "Kullanıcı Sayısı",
+      },
+
+      gridLineColor: "#F1F5F9",
+
+      labels: {
+        style: {
+          color: "#6B7280",
+        },
+      },
+    },
+
+    tooltip: {
+      backgroundColor: "#ffffff",
+      borderColor: "#E5E7EB",
+      borderRadius: 10,
+      shadow: true,
+
+      style: {
+        color: "#1F2937",
+        fontSize: "13px",
+      },
+
+      formatter: function () {
+        return "👤 Kullanıcı: <b>" + this.y + " kullanıcı</b>";
+      },
+    },
+
+    plotOptions: {
+      areaspline: {
+        lineWidth: 4,
+
+        marker: {
+          radius: 5,
+
+          fillColor: "#5B5CEB",
+        },
+
+        fillColor: {
+          linearGradient: {
+            x1: 0,
+            y1: 0,
+            x2: 0,
+            y2: 1,
+          },
+
+          stops: [
+            [0, "rgba(91,92,235,.35)"],
+
+            [1, "rgba(91,92,235,.03)"],
+          ],
+        },
+      },
+    },
+
+    series: [
+      {
+        name: "Kullanıcı",
+
+        data: [35, 52, 48, 80, 95, 120, 105],
+      },
+    ],
   });
 });
 
@@ -202,7 +397,7 @@ function showEmptyMessage() {
   if (tabContainer.children.length === 0) {
     tabContent.innerHTML = `
             <div id="emptyMessage"
-                 class="text-center text-muted py-5">
+                 class="text-center py-5"
 
                 Sol menüden bir sayfa seçiniz.
 

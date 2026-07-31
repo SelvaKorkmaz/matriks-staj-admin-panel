@@ -867,3 +867,15 @@ body.dark-mode table.dataTable tbody td {
 body.dark-mode table.dataTable tbody tr:hover td {
     background-color: #2d3748 !important;
 }
+
+/* ========================= */
+/* Empty Message */
+/* ========================= */
+
+#emptyMessage {
+    color: #212529 !important;
+}
+
+body.dark-mode #emptyMessage {
+    color: #ffffff !important;
+}
